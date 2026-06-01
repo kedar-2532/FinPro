@@ -1,16 +1,77 @@
-# React + Vite
+# FinPro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Financial Management & Risk Monitoring System built using Django REST Framework, React, and MySQL.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* JWT Authentication
+* Income & Expense Tracking
+* Budget Management
+* Financial Dashboard
+* Analytics & Charts
+* Financial Alerts
+* Risk Score Calculation
+* AI-Based Financial Insights
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+* React
+* Tailwind CSS
+* Recharts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+* Django
+* Django REST Framework
+* JWT Authentication
+
+### Database
+
+* MySQL
+
+## Modules
+
+* Dashboard
+* Transactions
+* Budgets
+* Analytics
+* Alerts
+
+## Installation
+
+### Backend
+
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+### Frontend
+
+```bash
+npm install
+npm run dev
+```
+
+## Screenshots
+
+* Login
+* Dashboard
+* Transactions
+* Budgets
+* Analytics
+* Alerts
+
+## Future Improvements
+
+* EMI Tracking
+* Export Reports
+* Email Notifications
+* Spending Predictions
+
+## Author
+
+Kedar Salokhe

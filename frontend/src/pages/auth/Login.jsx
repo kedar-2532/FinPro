@@ -55,7 +55,7 @@ function Login() {
 
     localStorage.setItem("access", data.access);
 
-    toast.sussess("Login Successful");
+    toast.success("Login Successful");
 
     navigate("/dashboard");
 

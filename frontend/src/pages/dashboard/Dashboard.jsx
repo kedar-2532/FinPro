@@ -51,11 +51,11 @@ function Dashboard() {
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
 
-        <div className='bg-white p-5 rounded-xl shadnow'>
+        <div className='bg-white p-5 rounded-xl shadow'>
 
           <h2>Total Balance</h2>
 
-          <p className='test-2xl font-bold'>
+          <p className='text-2xl font-bold'>
             ₹ {data.total_balance}
           </p>
 
@@ -65,7 +65,7 @@ function Dashboard() {
 
           <h2>Total Income</h2>
 
-          <p className='text-2xl font-bold test-green-600'>
+          <p className='text-2xl font-bold text-green-600'>
             ₹ {data.total_income}
           </p>
 
