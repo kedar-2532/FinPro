@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 export async function getTransactions(){
     const token = localStorage.getItem('access')
 
@@ -7,6 +9,15 @@ export async function getTransactions(){
             headers:{Authorization:`Bearer ${token}`}
         }
     )
+    if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
+
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
 
 if(!response.ok){
     throw new Error('Failed ot fetch')
@@ -28,6 +39,15 @@ export async function deleteTransaction(id){
             }
         }
     )
+    if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
+
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
     if(!response.ok){
         throw new Error('Delete Failed')
     }
@@ -46,6 +66,15 @@ export async function addTransaction(data){
             body:JSON.stringify(data)
         }
     )
+    if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
+
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
     if(!response.ok){
         throw new Error("Create Failed")
     }

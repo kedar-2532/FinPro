@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import DashboardLayout from '../../layouts/DashboardLayout'
+import toast from 'react-hot-toast'
 
 function Budgets() {
 
@@ -9,10 +10,9 @@ function Budgets() {
     async function fetchBudgets(){
 
         try{
-            const token=
-            localStorage.getItem("access")
-            const response=
-            await fetch(
+            const token=localStorage.getItem("access")
+            
+            const response=await fetch(
                 "http://127.0.0.1:8000/api/finance/budget-summary/",
                 {
                     headers:{
@@ -20,7 +20,15 @@ function Budgets() {
                     }
                 }
             )
+            if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
 
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
             const data = await response.json()
             console.log("BUDGET DATA:", data)
             setBudgets(data)
@@ -37,7 +45,7 @@ function Budgets() {
 
         <h1 className='text-4xl font-bold mb-6'>Budget</h1>
 
-        <div className='grid grid-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
             (budgets.results || budgets).map(
                 (item)=>(

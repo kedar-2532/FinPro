@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import toast from 'react-hot-toast'
 import DashboardLayout from '../../layouts/DashboardLayout'
 
 function Alerts(){
@@ -18,6 +18,15 @@ function Alerts(){
                         }
                     }
                 )
+                if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
+
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
                 const data = await response.json()
 
                 setAlerts(data)

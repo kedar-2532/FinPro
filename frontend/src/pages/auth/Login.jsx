@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast'
 
 function Login() {
 
@@ -34,6 +35,15 @@ function Login() {
         body: JSON.stringify(formData),
       }
     );
+    if (response.status === 401){
+                    localStorage.removeItem('access');
+                    localStorage.removeItem('refresh');
+
+                    toast.error('Session Expired');
+
+                    window.location.href = '/login';
+                    return ;
+                }
 
     const data = await response.json();
 
@@ -45,13 +55,13 @@ function Login() {
 
     localStorage.setItem("access", data.access);
 
-    alert("Login Successful");
+    toast.sussess("Login Successful");
 
     navigate("/dashboard");
 
   } else {
     
-    alert("Invalid Credentails");
+   toast.error("Invalid Credentails");
   }
 
 } catch (error) {
@@ -59,28 +69,29 @@ function Login() {
     console.log('FULL ERROR:',error);
 
     if (error.response){
-      console.log('Response Data:', error.respnse.data);
+      console.log('Response Data:', error.response.data);
 
       console.log('Response Status:', error.response.status);
     }
 
-    alert("Login Failed");
+    toast.error("Login Failed");
   }
 };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6">FinPro Login</h1>
 
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full border p-3 rounded mb-4" />
         <br /><br />
 
-        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} />
+        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full border p-3 rounded mb-4" />
 
         <br /><br />
 
-        <button type="submit">
+        <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
           Login
         </button>
 

@@ -31,9 +31,9 @@ async function handleSubmit(e){
 return(
     <div className='bg-white p-5 rounded-xl shadow mb-6'>
 
-        <h2 className='text-xl font-bold mn-4'>Add Transaction</h2>
+        <h2 className='text-xl font-bold mb-4'>Add Transaction</h2>
 
-        <form onSubmit={handleSubmit} className='grid grid-cols-2 pag-3'>
+        <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-3'>
 
             <input name="amount" placeholder='Amount' value={form.amount} onChange={handleChange} className='border p-2' />
 
@@ -46,7 +46,7 @@ return(
 
             <input type='datetime-local' name="date" value={form.date} onChange={handleChange} className='border p-2' />
 
-            <button className='bg-blue-600 text-white p-2 rounded'>Add</button>
+            <button className='bg-blue-600 text-white p-2 rounded md:col-span-2'>Add</button>
 
         </form>
     </div>

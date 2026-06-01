@@ -62,7 +62,7 @@ return(
 
         <AddTransactionForm onAdd={handleAdd} />
 
-        <div className='bg-white p-5 rounded-xl shodow'>
+        <div className='bg-white p-5 rounded-xl shodow overflow-x-auto'>
             <table className='w-full'>
                 <thead>
                     <tr>

@@ -28,25 +28,15 @@ function Analytics(){
             const riskResponse=
 
             await fetch(
-
                 "http://127.0.0.1:8000/api/finance/risk-score/",
-
                 {
-
                     headers:{
-
-                        Authorization:
-                        `Bearer ${token}`
-
+                        Authorization:`Bearer ${token}`
                     }
-
                 }
-
             )
 
-            const riskData=
-
-            await riskResponse.json()
+            const riskData=await riskResponse.json()
 
             setRisk(
                 riskData
@@ -60,6 +50,7 @@ function Analytics(){
                     }
                 }
             )
+    
             const insightsData = await insightsResponse.json()
             setInsights(insightsData)
             
@@ -108,7 +99,7 @@ return(
 
         {
             risk && (
-                <div className='gird grid-cols-4 gap-4 mn-6'>
+                <div className='gird grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mn-6'>
 
                     <div className='bg-white shadow rounded-xl p-5'>
                         <h3>Risk Level</h3>
