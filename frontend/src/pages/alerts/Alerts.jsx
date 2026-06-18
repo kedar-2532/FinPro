@@ -11,7 +11,7 @@ function Alerts(){
                 const token = localStorage.getItem('access')
 
                 const response = await fetch(
-                    'http://127.0.0.1:8000/api/finance/alerts/',
+                    `${import.meta.env.VITE_API_URL}/api/finance/alerts/`,
                     {
                         headers:{
                             Authorization:`Bearer ${token}`

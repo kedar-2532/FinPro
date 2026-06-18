@@ -4,7 +4,7 @@ export async function getTransactions(){
     const token = localStorage.getItem('access')
 
     const response = await fetch(
-        'http://127.0.0.1:8000/api/finance/transactions/',
+        `${import.meta.env.VITE_API_URL}/api/finance/transactions/`,
         {
             headers:{Authorization:`Bearer ${token}`}
         }
@@ -30,7 +30,7 @@ export async function deleteTransaction(id){
     const token=localStorage.getItem('access')
 
     const response=await fetch(
-        `http://127.0.0.1:8000/api/finance/transactions/${id}/`,
+        `${import.meta.env.VITE_API_URL}/api/finance/transactions/${id}/`,
         {
             method:'DELETE',
 
@@ -56,7 +56,7 @@ export async function deleteTransaction(id){
 export async function addTransaction(data){
     const token = localStorage.getItem('access')
     const response = await fetch(
-        "http://127.0.0.1:8000/api/finance/transactions/",
+        `${import.meta.env.VITE_API_URL}/api/finance/transactions/`,
         {
             method:'POST',
             headers:{

@@ -28,7 +28,7 @@ function Analytics(){
             const riskResponse=
 
             await fetch(
-                "http://127.0.0.1:8000/api/finance/risk-score/",
+                `${import.meta.env.VITE_API_URL}/api/finance/risk-score/`,
                 {
                     headers:{
                         Authorization:`Bearer ${token}`
@@ -43,7 +43,7 @@ function Analytics(){
             )
 
             const insightsResponse =await fetch(
-                "http://127.0.0.1:8000/api/finance/ai-insights/",
+                `${import.meta.env.VITE_API_URL}/api/finance/ai-insights/`,
                 {
                     headers:{
                         Authorization:`Bearer ${token}`
@@ -55,7 +55,7 @@ function Analytics(){
             setInsights(insightsData)
             
             const monthlyReponse = await fetch(
-                'http://127.0.0.1:8000/api/finance/monthly-summary/',
+                `${import.meta.env.VITE_API_URL}/api/finance/monthly-summary/`,
                 {
                     headers:{
                         Authorization:`Bearer ${token}`
@@ -67,13 +67,13 @@ function Analytics(){
             setMonthlyData(monthly)
 
             const categoryResponse = await fetch(
-            'http://127.0.0.1:8000/api/finance/category-summary/',
-            {
-                headers:{
-                    Authorization:`Bearer ${token}`
+                `${import.meta.env.VITE_API_URL}/api/finance/category-summary/`,
+                {
+                    headers:{
+                        Authorization:`Bearer ${token}`
+                    }
                 }
-            }
-        );
+            );
 
         const category = await categoryResponse.json()
 
